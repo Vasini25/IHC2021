@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- vendors style -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/84448e50b6.js"></script>
+    <link rel="stylesheet" href="vendors/unslider/dist/css/unslider.css">
+    <link rel="stylesheet" href="vendors/unslider/dist/css/unslider-dots.css">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/acompanhamento.css">
+    <title>Horta&Fruta</title>
+</head>
+
+<body>
+
+    <!-- cabeçalho -->
+    <header>
+        <div class="row">
+
+            <!-- Logo -->
+            <div class="col-4 col-md-1 offset-md-2">
+                <div class="logo div-as-image m-1 m-md-0"></div>
+            </div>
+
+            <!-- Barra de pesquisa -->
+            <div class="col-6 col-md-3 mt-3 search-bar">
+                <form>
+                    <div class="form-group position-relative">
+                        <input type="text" class="form-control" placeholder="Pesquisar...">
+                        <i class="fa fa-search position-absolute text-secondary" aria-hidden="true"></i>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Menu para telas menores, não aparece no tamanho desktop -->
+            <div class="col-2 d-block d-md-none mt-3 p-0 text-secondary dropdown colapsed-menu">
+                <button class="btn-no-style" id="menu-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-list-ul list-icon cursor-pointer" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="menu-btn">
+                    <li>
+                        <a class="dropdown-item" href="/carrinho.html">
+                            Carrinho
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-login">
+                            Entrar
+                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-no-style" title="Acessibilidade" data-bs-toggle="modal" data-bs-target="#modal-acessibilidade">
+                            Acessibilidade
+                            <i class="fa fa-universal-access accecibility-icon" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- menu do cabeçalho -->
+            <div class="col-4 mt-3 pt-1 text-secondary header-icons d-none d-md-block">
+                <a class="me-4 btn-no-style" title="Trocar Localização" href="localizacao.html">
+                    São Carlos - SP
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                </a>
+
+                <a class="me-4 btn-no-style" title="Acesse seu Carrinho" href="carrinho.html">
+                    Carrinho
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </a>
+
+                <button class="me-5 btn-no-style" title="Acesse ou crie uma Conta" data-bs-toggle="modal"
+                    data-bs-target="#modal-login">
+                    Entrar
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                </button>
+
+                <!-- TODO: colocar botão de acessibilidade em mobile -->
+                <button class="btn-no-style" title="Acessibilidade" data-bs-toggle="modal" data-bs-target="#modal-acessibilidade">
+                    <i class="fa fa-universal-access accecibility-icon" aria-hidden="true"></i>
+                </button>
+
+            </div>
+        </div>
+
+    </header>
+
+    <!-- barra de navegação-->
+    <nav class="row">
+        <div class="col-12 categories-bar">
+            <div class="row">
+                <div class="col-12 col-md-8 offset-md-2">
+
+                    <!-- só aparece em desktop -->
+                    <ul class="pt-3 d-none d-md-flex">
+                        <li>
+                            <a href="index.html">
+                            INÍCIO
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html">
+                                CATEGORIAS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html">
+                                OFERTAS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html">
+                                PRODUTOS NOVOS
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- só aparece em mobile -->
+                    <div class="category-select">
+                        <select class="d-block d-md-none text-white fw-bold">
+                            <option selected>
+                                <a href="index.html">
+                                    INÍCIO 
+                                </a>
+                            </option>
+                            <option value="CATEGORIA">
+                                <a href="index.html">
+                                    CATEGORIA 
+                                </a>
+                            </option>
+                            <option value="OFERTAS">
+                                <a href="index.html">
+                                    OFERTAS 
+                                </a>
+                            </option>
+                            <option value="PRODUTOS NOVOS">
+                                <a href="index.html">
+                                    PRODUTOS NOVOS 
+                                </a>
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Slider -->
+    <div class="position-relative">
+        <!-- imagens do slider -->
+        <div class="banner">
+            <ul>
+                <li><img class="d-block w-100" src="assets/Banner1.1.jpg"
+                        alt="Bem vindo escrito e atras cestas de frutas em um feira">
+                </li>
+                <li><img class="d-block w-100" src="assets/banner2.jpg"
+                        alt="Varias frutas em uma mesa">
+                </li>
+                <li><img class="d-block w-100" src="assets/banner3.jpg"
+                        alt="Varias frutas em caixas em uma feira">
+                </li>
+            </ul>
+        </div>
+
+        <!-- Setas do slider -->
+        <div class="arrow-wrapper d-none d-md-block">
+            <a class="unslider-arrow prev text-light"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i></a>
+            <a class="unslider-arrow next text-light"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <!-- breadcrumb -->
+    <div class="bread-crumb mt-2">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <span>Página Inicial</span>
+                >
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtros - Só aparece em mobile -->
+    <div class="dropdown d-md-none filter-mobile text-end">
+        <button class="btn-no-style text-secondary text-end p-2" id="ddddddddddd" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Filtros
+            <i class="fa fa-filter" aria-hidden="true"></i>
+        </button>
+        <ul class="dropdown-menu p-3" aria-labelledby="ddddddddddd">
+            <li>
+                <h2>Promoções especiais</h2>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1Mb">
+                    <label class="form-check-label" for="defaultCheck1Mb">
+                        Ofertas do dia
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2Mb">
+                    <label class="form-check-label" for="defaultCheck2Mb">
+                        Feira da semana
+                    </label>
+                </div>
+            </li>
+            <li>
+                <h2>Categorias</h2>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3Mb">
+                    <label class="form-check-label" for="defaultCheck3Mb">
+                        Frutas
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck4Mb">
+                    <label class="form-check-label" for="defaultCheck4Mb">
+                        Hortaliças e verduras
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck5Mb">
+                    <label class="form-check-label" for="defaultCheck5Mb">
+                        Grãos
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck6Mb">
+                    <label class="form-check-label" for="defaultCheck6Mb">
+                        Óleos e azeites
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck7Mb">
+                    <label class="form-check-label" for="defaultCheck7Mb">
+                        Geléias
+                    </label>
+                </div>
+            </li>
+            <li>
+                <h2>Preços</h2>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck8Mb">
+                    <label class="form-check-label" for="defaultCheck8Mb">
+                        Até R$5,00
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck9Mb">
+                    <label class="form-check-label" for="defaultCheck9Mb">
+                        Até R$10,00
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck10Mb">
+                    <label class="form-check-label" for="defaultCheck10Mb">
+                        Até R$15,00
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck11Mb">
+                    <label class="form-check-label" for="defaultCheck11Mb">
+                        Acima de R$15,00
+                    </label>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <main class="main-content" id="main-content">
+        <div class="row">
+            <!-- Filtros -->
+            <aside class="col-2 offset-2 filter-wrapper ps-0 d-none d-md-block">
+
+                <!-- Filtros parte 1 -->
+                <a href="#main-content">
+                    <h2>Promoções especiais</h2>
+                </a>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" name="defaultCheck1" id="defaultCheck1"
+                        aria-label="ofertas do dia">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Ofertas do dia
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2"
+                        aria-label="feira da semana">
+                    <label class="form-check-label" for="defaultCheck2">
+                        Feira da semana
+                    </label>
+                </div>
+
+                <!-- Filtros parte 2 -->
+                <a href="#main-content">
+                    <h2>Categorias</h2>
+                </a>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3" aria-label="frutas">
+                    <label class="form-check-label" for="defaultCheck3">
+                        Frutas
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck4"
+                        aria-label="hortaliças e verduras">
+                    <label class="form-check-label" for="defaultCheck4">
+                        Hortaliças e verduras
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck5" aria-label="grãos">
+                    <label class="form-check-label" for="defaultCheck5">
+                        Grãos
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck6"
+                        aria-label="óleos e azeites">
+                    <label class="form-check-label" for="defaultCheck6">
+                        Óleos e azeites
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck7" aria-label="geléias">
+                    <label class="form-check-label" for="defaultCheck7">
+                        Geléias
+                    </label>
+                </div>
+
+                <!-- Filtros parte 3 -->
+                <a href="#main-content">
+                    <h2>Preços</h2>
+                </a>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck8"
+                        aria-label="até cinco reais">
+                    <label class="form-check-label" for="defaultCheck8">
+                        Até R$5,00
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck9"
+                        aria-label="até dez reais">
+                    <label class="form-check-label" for="defaultCheck9">
+                        Até R$10,00
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck10"
+                        aria-label="até quinze reais">
+                    <label class="form-check-label" for="defaultCheck10">
+                        Até R$15,00
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck11"
+                        aria-label="acima para quinze reais">
+                    <label class="form-check-label" for="defaultCheck11">
+                        Acima de R$15,00
+                    </label>
+                </div>
+            </aside>
+
+            <!-- Produtos -->
+            <div class="col-12 col-md-6 p-0">
+                <div class="row p-0">
+
+                    <!-- item -->
+                    <div class="col-12 col-md-3 mb-5 mt-3">
+                        <div class="product">
+                            <h3 class="text-center fw-normal text-secondary">Banana</h3>
+                            <div class="product-image div-as-image" style="background-image: url('assets/banana.jpg');">
+                            </div>
+                            <div class="prod-qtty-handler mt-2">
+                                <button class="decrement-btn">-</button>
+                                <span>1</span>
+                                <button class="increment-btn">+</button>
+                            </div>
+                            <div class="prod-add-cart ps-3 ps-md-0 d-flex justify-content-center">
+                                <button class="btn mt-2">Adicionar ao carrinho</button>
+                            </div>
+                            <span class="prod-price">R$1,42/kg</span>
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="col-12 col-md-3 mb-5 mt-3">
+                        <div class="product">
+                            <h3 class="text-center fw-normal text-secondary">Couve</h3>
+                            <div class="product-image div-as-image" style="background-image: url('assets/couve.jpg');">
+                            </div>
+                            <div class="prod-qtty-handler mt-2">
+                                <button class="decrement-btn">-</button>
+                                <span>1</span>
+                                <button class="increment-btn">+</button>
+                            </div>
+                            <div class="prod-add-cart ps-3 ps-md-0 d-flex justify-content-center">
+                                <button class="btn mt-2">Adicionar ao carrinho</button>
+                            </div>
+                            <span class="prod-price">R$1,90/un</span>
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="col-12 col-md-3 mb-5 mt-3">
+                        <div class="product">
+                            <h3 class="text-center fw-normal text-secondary">Arroz</h3>
+                            <div class="product-image div-as-image" style="background-image: url('assets/arroz.jpeg');">
+                            </div>
+                            <div class="prod-qtty-handler mt-2">
+                                <button class="decrement-btn">-</button>
+                                <span>1</span>
+                                <button class="increment-btn">+</button>
+                            </div>
+                            <div class="prod-add-cart ps-3 ps-md-0 d-flex justify-content-center">
+                                <button class="btn mt-2">Adicionar ao carrinho</button>
+                            </div>
+                            <span class="prod-price">R$4,30/kg</span>
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="col-12 col-md-3 mb-5 mt-3">
+                        <div class="product">
+                            <h3 class="text-center fw-normal text-secondary">Limão</h3>
+                            <div class="product-image div-as-image" style="background-image: url('assets/limao.jpeg');">
+                            </div>
+                            <div class="prod-qtty-handler mt-2">
+                                <button class="decrement-btn">-</button>
+                                <span>1</span>
+                                <button class="increment-btn">+</button>
+                            </div>
+                            <div class="prod-add-cart ps-3 ps-md-0 d-flex justify-content-center">
+                                <button class="btn mt-2">Adicionar ao carrinho</button>
+                            </div>
+                            <span class="prod-price">R$2,10/kg</span>
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="col-12 col-md-3 mb-5 mt-3">
+                        <div class="product">
+                            <h3 class="text-center fw-normal text-secondary">Cebola</h3>
+                            <div class="product-image div-as-image"
+                                style="background-image: url('assets/cebola.jpeg');"></div>
+                            <div class="prod-qtty-handler mt-2">
+                                <button class="decrement-btn">-</button>
+                                <span>1</span>
+                                <button class="increment-btn">+</button>
+                            </div>
+                            <div class="prod-add-cart ps-3 ps-md-0 d-flex justify-content-center">
+                                <button class="btn mt-2">Adicionar ao carrinho</button>
+                            </div>
+                            <span class="prod-price">R$0,79/kg</span>
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="col-12 col-md-3 mb-5 mt-3">
+                        <div class="product">
+                            <h3 class="text-center fw-normal text-secondary">Abacaxi</h3>
+                            <div class="product-image div-as-image"
+                                style="background-image: url('assets/abacaxi.jpg');"></div>
+                            <div class="prod-qtty-handler mt-2">
+                                <button class="decrement-btn">-</button>
+                                <span>1</span>
+                                <button class="increment-btn">+</button>
+                            </div>
+                            <div class="prod-add-cart ps-3 ps-md-0 d-flex justify-content-center">
+                                <button class="btn mt-2">Adicionar ao carrinho</button>
+                            </div>
+                            <span class="prod-price">R$3,15/kg</span>
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="col-12 col-md-3 mb-5 mt-3">
+                        <div class="product">
+                            <h3 class="text-center fw-normal text-secondary">Manga </h3>
+                            <div class="product-image div-as-image" style="background-image: url('assets/manga.jpg');">
+                            </div>
+                            <div class="prod-qtty-handler mt-2">
+                                <button class="decrement-btn">-</button>
+                                <span>1</span>
+                                <button class="increment-btn">+</button>
+                            </div>
+                            <div class="prod-add-cart ps-3 ps-md-0 d-flex justify-content-center">
+                                <button class="btn mt-2">Adicionar ao carrinho</button>
+                            </div>
+                            <span class="prod-price">R$3,49/kg</span>
+                        </div>
+                    </div>
+
+                    <!-- item -->
+                    <div class="col-12 col-md-3 mb-5 mt-3">
+                        <div class="product">
+                            <h3 class="text-center fw-normal text-secondary">Abacate</h3>
+                            <div class="product-image div-as-image"
+                                style="background-image: url('assets/abacate.jpg');"></div>
+                            <div class="prod-qtty-handler mt-2">
+                                <button class="decrement-btn">-</button>
+                                <span>1</span>
+                                <button class="increment-btn">+</button>
+                            </div>
+                            <div class="prod-add-cart ps-3 ps-md-0 d-flex justify-content-center">
+                                <button class="btn mt-2">Adicionar ao carrinho</button>
+                            </div>
+                            <span class="prod-price">R$2,79/kg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="pb-5 pt-3 mt-5 px-md-0 px-3">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <div class="row">
+                    <div class="col-12 col-md-3 footer-column mt-4 mt-md-0">
+                        <h3>Formas de Pagamento</h3>
+                        <div class="band-img-wrapper">
+                            <img src="assets/band-1.jpeg" alt="logo da visa">
+                            <img src="assets/band-2.png" alt="logo da mastercard">
+                            <img src="assets/band-3.jpeg" alt="código de barras com boleto escrito em baixo"><br>
+                            <img src="assets/band-4.jpeg" alt="logo da empresa sicred">
+                            <img src="assets/band-5.png" alt="logo da empresa hipercard">
+                            <img src="assets/band-6.png" alt="logo da empresa elo">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 footer-column mt-4 mt-md-0">
+                        <h3>Parceiros e provedores:</h3>
+                        provedor@hotmail.com.br<br>
+                        parceiro@hotmail.com.br
+                    </div>
+                    <div class="col-12 col-md-3 footer-column mt-4 mt-md-0">
+                        <h3>Redes Sociais:</h3>
+                        <div class="social-icons-wrapper">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3 footer-column mt-4 mt-md-0">
+                        <h3>Contato:</h3>
+                        +55 (xx) xxxx-xxxx<br>
+                        horta@fruta.com
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Login -->
+    <div class="modal fade" id="modal-login" tabindex="-1" aria-labelledby="modal-login-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-secondary" id="modal-login-label">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Login logo -->
+                <div class="modal-body">
+                    <div class="login-modal-logo d-flex justify-content-center">
+                        <img src="assets/amendoim.png" alt="">
+                        <h6 class="text-secondary">Horta&Fruta</h6>
+                    </div>
+                </div>
+
+                <div class="login-form-wrapper text-secondary d-flex justify-content-center mb-5">
+                    <div>
+
+                        <!-- formulário login -->
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Usuário">
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="password" class="form-control" placeholder="Senha">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary submit-button">Entrar</button>
+                        </form>
+
+                        <!-- links login -->
+                        <div class="login-form-link"><a href="#">Esqueci a senha</a></div>
+                        <div class="login-form-link"><a href="Cadastro.html">Cadastrar</a></div>
+
+                        <div class="divisor text-center mt-3">
+                            <hr class="m-0">
+                            <span class="position-relative bg-white d-block">ou</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary fb-button">Entrar com o Facebook</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Alert -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+    </svg>
+
+    <div class="alert align-items-center custom-alert position-fixed" role="alert">
+        <div class="float-start">
+            <svg class="bi flex-shrink-0 me-2 alert-icon" width="24" height="24" role="img" aria-label="Info:">
+                <use xlink:href="#info-fill"/>
+            </svg>
+        </div>
+        <div class="alert-message"></div>
+    </div>
+
+    <!-- Modal Acessibilidade -->
+    <div class="modal fade" id="modal-acessibilidade" tabindex="-1" aria-labelledby="modal-acessibility-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-secondary" id="modal-acessibility-label">Acessibilidade</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="login-modal-logo d-flex justify-content-center">
+                        <img src="assets/amendoim.png" alt="">
+                        <h6 class="text-secondary">Horta&Fruta</h6>
+                    </div>
+                </div>
+
+                <div class="login-form-wrapper text-secondary d-flex justify-content-center mb-5">
+                    <div>
+                        <form>
+
+                            <div class="mb-3">
+                                <input type="number" class="form-control" placeholder="Tamanho da Fonte">
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="number" class="form-control" placeholder="Contraste da Tela">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary submit-button">Acionar Texto Falado</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- vendors libs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="vendors/unslider/dist/js/unslider-min.js"></script>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
